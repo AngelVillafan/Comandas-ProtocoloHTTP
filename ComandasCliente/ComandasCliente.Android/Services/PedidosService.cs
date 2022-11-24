@@ -21,6 +21,7 @@ namespace ComandasCliente.Droid.Services
         {
             cliente.BaseAddress = new Uri("http://localhost:4999/pedidos/");
         }
+        /* Falta por terminar ViewModel del apartado del cliente*/
         public async Task PedidoPOST(object obj)
         {
             var json = JsonConvert.SerializeObject(obj);
