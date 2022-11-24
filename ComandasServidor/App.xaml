@@ -4,6 +4,69 @@
              xmlns:local="clr-namespace:ComandasServidor"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+        <SolidColorBrush x:Key="VerdeApagado">#7fb146</SolidColorBrush>
+        <SolidColorBrush x:Key="grisOscuro">#666666</SolidColorBrush>
+        <SolidColorBrush x:Key="grisCasiNegro">#4d4d4d</SolidColorBrush>
+        <SolidColorBrush x:Key="fondoGrisClaro">#e1e1e1</SolidColorBrush>
+        <SolidColorBrush x:Key="blancoPuro">#ffffff</SolidColorBrush>
+        <SolidColorBrush x:Key="VerdeApagadoOscuro">#4e8544</SolidColorBrush>
+
+
+
+
+
+        <Style TargetType="ListBox"
+               x:Key="gastosListBox">
+            <Setter Property="Background" Value="Transparent"></Setter>
+            <Setter Property="BorderThickness" Value="0"></Setter>
+            <Setter Property="BorderBrush" Value="Transparent"></Setter>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden"></Setter>
+        </Style>
+
+        <Style x:Key="btnAplicar" TargetType="Button">
+            <Setter Property="Padding" Value="45 12"></Setter>
+            <Setter Property="BorderThickness" Value="0"></Setter>
+            <Setter Property="FontSize" Value="18"></Setter>
+            <Setter Property="Margin" Value="15 15 15 0"></Setter>
+            <Setter Property="Foreground" Value="{StaticResource blancoPuro}"></Setter>
+            <Setter Property="Background" Value="{StaticResource VerdeApagado}"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}"
+                                Width="{TemplateBinding Width}"
+                                Padding="{TemplateBinding Padding}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="8">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource VerdeApagadoOscuro}"></Setter>
+                </Trigger>
+                <Trigger Property="IsMouseCaptured" Value="True">
+                    <Setter Property="Background" Value="{StaticResource VerdeApagado}"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </Application.Resources>
 </Application>

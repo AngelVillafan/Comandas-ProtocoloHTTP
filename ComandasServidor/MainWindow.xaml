@@ -4,9 +4,161 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComandasServidor"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="900" Width="1600" Background="#b1464a">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="pack://application:,,,/Assets/Fonts/#Comfortaa"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="25">
+        <Border CornerRadius="10"
+                Background="WhiteSmoke">
+            <Border.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation From="10"
+                                             To="40"
+                                             BeginTime="0:0:0"
+                                             AutoReverse="True"
+                                             RepeatBehavior="Forever"
+                                             Storyboard.TargetProperty="BlurRadius"
+                                             Storyboard.TargetName="blur"></DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Border.Triggers>
+            <Border.Effect>
+                <DropShadowEffect Color="#808080"
+                                  Direction="270"
+                                  x:Name="blur"
+                                  ShadowDepth="5"></DropShadowEffect>
+            </Border.Effect>
+            <Grid Margin="15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width=".6*"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <DockPanel>
+                    <TextBlock FontSize="35"
+                           Foreground="#b1464a"
+                               DockPanel.Dock="Top"
+                           >Pedidos</TextBlock>
+
+                    <ListBox Style="{StaticResource gastosListBox}"
+                                 Margin="0 20 0 0">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel></StackPanel>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Border Margin="0 0 0 10" Height="100" CornerRadius="8" Background="{StaticResource VerdeApagado}">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="75"></ColumnDefinition>
+                                                <ColumnDefinition></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Border Height="65" Width="65" Background="{StaticResource grisOscuro}"
+                                                CornerRadius="50">
+                                                <materialDesign:PackIcon Kind="Noodles"
+                                                                     Foreground="{StaticResource VerdeApagado}"
+                                                                     HorizontalAlignment="Center"
+                                                                     VerticalAlignment="Center"
+                                                                     Width="55" Height="55"></materialDesign:PackIcon>
+                                            </Border>
+                                            <StackPanel Grid.Column="1" Margin="10" VerticalAlignment="Center">
+                                                <StackPanel.Resources>
+                                                    <Style TargetType="TextBlock">
+                                                        <Setter Property="FontSize" Value="14"></Setter>
+                                                        <Setter Property="Foreground" Value="{StaticResource grisCasiNegro}"></Setter>
+                                                    </Style>
+                                                </StackPanel.Resources>
+                                                <WrapPanel Margin="0 0 0 5">
+                                                    <TextBlock Text="Mesa: "></TextBlock>
+                                                    <TextBlock Text="Numero de mesa"></TextBlock>
+                                                </WrapPanel>
+                                                <WrapPanel Margin="0 0 0 5">
+                                                    <TextBlock Text="Mesero: "></TextBlock>
+                                                    <TextBlock Text="Nombre del mesero"></TextBlock>
+                                                </WrapPanel>
+                                                <WrapPanel Margin="0 0 0 5">
+                                                    <TextBlock Text="Pedido hecho: "></TextBlock>
+                                                    <TextBlock Text="Hora y fecha de toma de orden"></TextBlock>
+                                                </WrapPanel>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                </DockPanel>
+
+
+                <DockPanel Grid.Column="1">
+                    <TextBlock FontSize="35"
+                               Foreground="#b1464a"
+                               DockPanel.Dock="Top">Detalles del pedido</TextBlock>
+
+                    <WrapPanel HorizontalAlignment="Center"
+                               DockPanel.Dock="Bottom">
+
+
+                        <Button Style="{StaticResource btnAplicar}">Pedido listo
+                        </Button>
+                    </WrapPanel>
+
+                    <Border CornerRadius="8"
+                            Margin="0 10 0 0"
+                            Background="{StaticResource fondoGrisClaro}">
+                        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                            <StackPanel Margin="15">
+                                <StackPanel.Resources>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="FontSize" Value="25"></Setter>
+                                    </Style>
+                                </StackPanel.Resources>
+                                <TextBlock>Mesa #
+                                <TextBlock Text="45"></TextBlock>
+                                </TextBlock>
+                                <WrapPanel>
+                                    <TextBlock Margin=" 0 0 10 0">Mesero:</TextBlock>
+                                    <TextBlock Text="Alfonso Alfonsito"></TextBlock>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <TextBlock Margin=" 0 0 10 0">Hora:</TextBlock>
+                                    <TextBlock Text="15:36"></TextBlock>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <TextBlock Margin=" 0 0 10 0">Platillos:</TextBlock>
+                                    <TextBlock Text=""></TextBlock>
+                                </WrapPanel>
+                                <WrapPanel Margin="0 0 15 0">
+                                    <TextBlock Margin=" 0 0 10 0">Bebidas:</TextBlock>
+                                    <TextBlock Text="v"></TextBlock>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <TextBlock Margin=" 0 0 10 0">Notas:</TextBlock>
+                                    <TextBlock Text="f"></TextBlock>
+                                </WrapPanel>
+
+
+                            </StackPanel>
+                        </ScrollViewer>
+                    </Border>
+
+                </DockPanel>
+
+
+
+            </Grid>
+        </Border>
 
     </Grid>
 </Window>

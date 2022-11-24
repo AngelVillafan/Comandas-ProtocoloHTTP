@@ -12,7 +12,7 @@ using System.Text;
 
 namespace ComandasCliente.Droid
 {
-    [Activity(Label = "SplashActivity", Icon ="@mipmap/icon", Theme = "@style/SplashTheme", MainLauncher = true, NoHistory = true, ConfigurationChanges = ConfigChanges.ScreenSize)]
+    [Activity(Label = "Comandas", Icon ="@mipmap/icon", Theme = "@style/SplashTheme", MainLauncher = true, NoHistory = true, ConfigurationChanges = ConfigChanges.ScreenSize)]
     public class SplashActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
