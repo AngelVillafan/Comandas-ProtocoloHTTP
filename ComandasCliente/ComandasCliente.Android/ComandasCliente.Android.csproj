@@ -66,11 +66,13 @@
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
     <Compile Include="Models\Bebida.cs" />
+    <Compile Include="Models\Orden.cs" />
     <Compile Include="Models\Platillo.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\PedidosService.cs" />
     <Compile Include="SplashActivity.cs" />
+    <Compile Include="ViewModels\PrincipalViewModelcs.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -155,5 +157,6 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\fondoDos.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

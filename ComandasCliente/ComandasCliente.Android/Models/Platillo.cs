@@ -8,8 +8,9 @@ namespace ComandasServidor.Models
 {
     public class Platillo
     {
-        public int Mesa { get; set; }
         public string NombrePlatillo { get; set; } = "";
         public string Comentarios { get; set; } = "";
+        public string UrlImagen { get; set; }
+
     }
 }
