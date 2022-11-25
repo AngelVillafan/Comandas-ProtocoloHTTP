@@ -16,7 +16,7 @@ namespace ComandasServidor.Services
 
         public PedidoService()
         {
-            listener.Prefixes.Add("http://*:4999/pedidos");
+            listener.Prefixes.Add("http://*:4999/pedidos/");
         }
         public void Iniciar()
         {

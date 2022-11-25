@@ -4,9 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComandasServidor"
+        xmlns:mvv="clr-namespace:ComandasServidor.ViewModels"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="MainWindow" Height="900" Width="1600" Background="#b1464a">
+    <Window.DataContext>
+        <mvv:ComandaViewModel></mvv:ComandaViewModel>
+    </Window.DataContext>
     <Window.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="FontFamily" Value="pack://application:,,,/Assets/Fonts/#Comfortaa"></Setter>

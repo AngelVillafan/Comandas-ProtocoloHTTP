@@ -8,7 +8,9 @@ namespace ComandasServidor.Models
 {
     public class Bebida
     {
-        public string TipoBebida { get; set; } = "";
-        public string Marca { get; set; } = "";
+        public string NombreBebida{ get; set; } = "";
+        public string UrlImagen { get; set; }
+        public int Cantidad { get; set; }
+        public string Comentarios { get; set; } = "";
     }
 }

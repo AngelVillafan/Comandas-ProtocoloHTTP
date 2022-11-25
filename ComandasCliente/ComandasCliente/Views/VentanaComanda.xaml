@@ -1,8 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mvvm="clr-namespace:ComandasCliente.Droid.ViewModels"
              x:Class="ComandasCliente.Views.VentanaComanda">
-
+    <ContentPage.BindingContext>
+        <mvvm:PrincipalViewModelcs></mvvm:PrincipalViewModelcs>
+    </ContentPage.BindingContext>
     <StackLayout>
         <ScrollView>
             <StackLayout>
@@ -16,7 +19,7 @@
                         <Image Source="comidas.png" Aspect="AspectFill"></Image>
                     </Frame>
                     <!--BINDING A LA LISTA DE COMIDA-->
-                    <CollectionView FlowDirection="LeftToRight">
+                    <CollectionView ItemsSource="{Binding platillosdefinidos}" FlowDirection="LeftToRight">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
@@ -31,14 +34,14 @@
 
                                     <!--BINDING A LA COMIDA IMAGEN-->
                                     <Image Grid.RowSpan="2"
-                                       Margin="5"></Image>
+                                       Margin="5" Source="{Binding UrlImagen}"></Image>
 
                                     <StackLayout Grid.Column="1">
                                         <!--BINDING AL NOMBRE DEL PLATILLO-->
-                                        <Label TextColor="Black"></Label>
+                                        <Label TextColor="Black" Text="{Binding NombrePlatillo}"></Label>
 
                                         <!--BINDING A LA CANTIDAD DE PLATILLOS DE ESTE PLATILLO-->
-                                        <Entry Keyboard="Numeric"></Entry>
+                                        <Entry Text="{Binding Cantidad}" Keyboard="Numeric"></Entry>
                                     </StackLayout>
 
 
@@ -47,7 +50,7 @@
                                             Grid.Row="1"
                                             Margin="10"
                                             VerticalOptions="FillAndExpand"
-                                            HorizontalOptions="FillAndExpand"></Editor>
+                                            HorizontalOptions="FillAndExpand" Text="{Binding Comentarios}"></Editor>
 
 
 
@@ -64,10 +67,10 @@
                        HeightRequest="70"
                        BorderColor="Transparent"
                        WidthRequest="100">
-                        <Image Source="comidas.png" Aspect="AspectFill"></Image>
+                        <Image Source="bebidas.png" Aspect="AspectFill"></Image>
                     </Frame>
                     <!--BINDING A LA LISTA DE LAS BEBIDAS-->
-                    <CollectionView FlowDirection="LeftToRight">
+                    <CollectionView ItemsSource="{Binding bebidasdefinidas}" FlowDirection="LeftToRight">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
@@ -82,14 +85,14 @@
 
                                     <!--BINDING A LA BEBIDA IMAGEN-->
                                     <Image Grid.RowSpan="2"
-                                       Margin="5"></Image>
+                                       Margin="5" Source="{Binding UrlImagen}"></Image>
 
                                     <StackLayout Grid.Column="1">
                                         <!--BINDING AL NOMBRE DEL BEBIDA-->
-                                        <Label TextColor="Black"></Label>
+                                        <Label TextColor="Black" Text="{Binding NombreBebida}"></Label>
 
                                         <!--BINDING A LA CANTIDAD DE BEBIDAS DE ESTA BEBIDA-->
-                                        <Entry Keyboard="Numeric"></Entry>
+                                        <Entry Keyboard="Numeric" Text="{Binding Cantidad}"></Entry>
                                     </StackLayout>
 
 
@@ -98,7 +101,7 @@
                                             Grid.Row="1"
                                             Margin="10"
                                             VerticalOptions="FillAndExpand"
-                                            HorizontalOptions="FillAndExpand"></Editor>
+                                            HorizontalOptions="FillAndExpand" Text="{Binding Comentarios}"></Editor>
 
 
 
@@ -114,7 +117,7 @@
         </ScrollView>
         <StackLayout>
             <!--BINDING A LOS ERRORES-->
-            <Label TextColor="Crimson"></Label>
+            <Label TextColor="Crimson" Text="{Binding Error}"></Label>
             <Button Text="Realizar pedido"
                     BackgroundColor="#496628"
                     CornerRadius="10"
@@ -122,7 +125,7 @@
                     TextColor="white"
                     FontSize="25"
                     FontFamily="Junegull"
-                    VerticalOptions="End"
+                    VerticalOptions="End" Command="{Binding OrdenarCommand}"
                     ></Button>
             <!--EN ESTE BOTON VA EL BINDING A ENVIAR COMANDA-->
 
