@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ComandasCliente.Views.VentanaComanda">
+
+    <StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout>
+                    <Frame Margin="10"
+                       CornerRadius="15"
+                       Padding="0"
+                       HeightRequest="70"
+                       BorderColor="Transparent"
+                       WidthRequest="100">
+                        <Image Source="comidas.png" Aspect="AspectFill"></Image>
+                    </Frame>
+                    <!--BINDING A LA LISTA DE COMIDA-->
+                    <CollectionView FlowDirection="LeftToRight">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!--BINDING A LA COMIDA IMAGEN-->
+                                    <Image Grid.RowSpan="2"
+                                       Margin="5"></Image>
+
+                                    <StackLayout Grid.Column="1">
+                                        <!--BINDING AL NOMBRE DEL PLATILLO-->
+                                        <Label TextColor="Black"></Label>
+
+                                        <!--BINDING A LA CANTIDAD DE PLATILLOS DE ESTE PLATILLO-->
+                                        <Entry Keyboard="Numeric"></Entry>
+                                    </StackLayout>
+
+
+                                    <!--BINDING A LOS COMENTARIOS DEL PLATILLO-->
+                                    <Editor Grid.Column="1"
+                                            Grid.Row="1"
+                                            Margin="10"
+                                            VerticalOptions="FillAndExpand"
+                                            HorizontalOptions="FillAndExpand"></Editor>
+
+
+
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+
+                <StackLayout>
+                    <Frame Margin="10"
+                       CornerRadius="15"
+                       Padding="0"
+                       HeightRequest="70"
+                       BorderColor="Transparent"
+                       WidthRequest="100">
+                        <Image Source="comidas.png" Aspect="AspectFill"></Image>
+                    </Frame>
+                    <!--BINDING A LA LISTA DE LAS BEBIDAS-->
+                    <CollectionView FlowDirection="LeftToRight">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <!--BINDING A LA BEBIDA IMAGEN-->
+                                    <Image Grid.RowSpan="2"
+                                       Margin="5"></Image>
+
+                                    <StackLayout Grid.Column="1">
+                                        <!--BINDING AL NOMBRE DEL BEBIDA-->
+                                        <Label TextColor="Black"></Label>
+
+                                        <!--BINDING A LA CANTIDAD DE BEBIDAS DE ESTA BEBIDA-->
+                                        <Entry Keyboard="Numeric"></Entry>
+                                    </StackLayout>
+
+
+                                    <!--BINDING A LOS COMENTARIOS DEL BEBIDA-->
+                                    <Editor Grid.Column="1"
+                                            Grid.Row="1"
+                                            Margin="10"
+                                            VerticalOptions="FillAndExpand"
+                                            HorizontalOptions="FillAndExpand"></Editor>
+
+
+
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </StackLayout>
+
+
+            </StackLayout>
+
+        </ScrollView>
+        <StackLayout>
+            <!--BINDING A LOS ERRORES-->
+            <Label TextColor="Crimson"></Label>
+            <Button Text="Realizar pedido"
+                    BackgroundColor="#496628"
+                    CornerRadius="10"
+                    Margin="20"
+                    TextColor="white"
+                    FontSize="25"
+                    FontFamily="Junegull"
+                    VerticalOptions="End"
+                    ></Button>
+            <!--EN ESTE BOTON VA EL BINDING A ENVIAR COMANDA-->
+
+        </StackLayout>
+    </StackLayout>
+
+
+
+
+</ContentPage>

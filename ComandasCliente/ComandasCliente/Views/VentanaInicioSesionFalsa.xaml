@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ComandasCliente.Views.VentanaInicioSesionFalsa">
+    <Grid Margin="0"
+          Padding="0"  ColumnSpacing="0" RowSpacing="0" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image Source="fondo.jpg"
+               Aspect="AspectFill"
+               Margin="0"></Image>
+        <Grid Grid.Row="1">
+            <Image Source="fondoDos.jpg"></Image>
+            <Label Text="Bienvenido de nuevo Luis Miguel"
+                   Margin="20"
+                   TextColor="white"
+                   FontFamily="Junegull"
+                   FontSize="50"></Label>
+            <Button Text="Ir a ordenar"
+                    BackgroundColor="#496628"
+                    CornerRadius="10"
+                    Margin="20"
+                    TextColor="white"
+                    FontSize="25"
+                    FontFamily="Junegull"
+                    VerticalOptions="End"></Button>
+        </Grid>
+    </Grid>
+
+</ContentPage>

@@ -3,31 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ComandasCliente.MainPage"
              xmlns:sh="http://sharpnado.com">
-    <Grid Margin="0"
-          Padding="0">
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Image Source="fondo.jpg"
-               Aspect="AspectFill"
-               Margin="0"></Image>
-        <Grid Grid.Row="1">
-            <Image Source="fondoDos.jpg"></Image>
-            <Label Text="Bienvenido de nuevo Luis Miguel"
-                   TextColor="white"
-                   FontFamily="aristaPro"
-                   FontSize="20"></Label>
-            <Button Text="Ir a ordenar"
-                    BackgroundColor="#7fb146"
-                    CornerRadius="10"
-                    Margin="5"
-                    TextColor="white"
-                    FontSize="18"
-                    VerticalOptions="End"></Button>
-        </Grid>
-    </Grid>
-
+   
 
 
 </ContentPage>
