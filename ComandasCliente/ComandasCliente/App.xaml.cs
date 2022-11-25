@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using ComandasCliente.Views;
 
 namespace ComandasCliente
 {
@@ -10,7 +11,7 @@ namespace ComandasCliente
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new VentanaComanda();
         }
 
         protected override void OnStart()
