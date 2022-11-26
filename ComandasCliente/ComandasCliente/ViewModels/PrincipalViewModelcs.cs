@@ -16,25 +16,32 @@ namespace ComandasCliente.Droid.ViewModels
     {
         PedidosService cliente = new PedidosService();
         public string Error = "";
-        public ObservableCollection<Platillo> platillosdefinidos = new ObservableCollection<Platillo>()
+        public ObservableCollection<Platillo> Platillosdefinidos { get; set; } = new ObservableCollection<Platillo>()
         {
-          new Platillo{ NombrePlatillo="SushiUno", UrlImagen="sushiuno", Comentarios="", Cantidad=0 },
-          new Platillo{ NombrePlatillo="SushiDos", UrlImagen="sushidos", Comentarios="", Cantidad=0 },
-          new Platillo{ NombrePlatillo="SushiTres", UrlImagen="sushidos", Comentarios="", Cantidad=0 }
+          new Platillo{ NombrePlatillo="SushiUno", UrlImagen="sushiuno.jpg", Comentarios="", Cantidad=0 },
+          new Platillo{ NombrePlatillo="SushiDos", UrlImagen="sushidos.jpg", Comentarios="", Cantidad=0 },
+          new Platillo{ NombrePlatillo="SushiTres", UrlImagen="sushidos.jpg", Comentarios="", Cantidad=0 }
         };
-        public ObservableCollection<Bebida> bebidasdefinidas = new ObservableCollection<Bebida>()
+        public ObservableCollection<Bebida> Bebidasdefinidas { get; set; } = new ObservableCollection<Bebida>() 
         {
           new Bebida{ NombreBebida="BobaUno", UrlImagen="bobauno", Comentarios="", Cantidad=0},
           new Bebida{ NombreBebida="BobaDos", UrlImagen="bobados", Comentarios="", Cantidad=0},
           new Bebida{ NombreBebida="BobaTres", UrlImagen="bobatres", Comentarios="", Cantidad=0}
         };
+
+        
+
+
         //
         public ICommand OrdenarCommand { get; set; }
-        public Orden Ordencita { get; set; }
+        public Orden Ordencita { get; set; } = new Orden();
+
         public PrincipalViewModelcs()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("platillosdefinidos"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Platillosdefinidos)));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("bebidasdefinidas"));
+
+
             OrdenarCommand = new Command(Ordenar);
         }
 
@@ -42,16 +49,19 @@ namespace ComandasCliente.Droid.ViewModels
         {
             try
             {
-                foreach (var item in platillosdefinidos)
+                
+                foreach (var item in Platillosdefinidos)
                 {
+                    
                     if (item.Cantidad > 0)
                     {
+                        
                         Ordencita.platillos.NombrePlatillo = item.NombrePlatillo;
                         Ordencita.platillos.Cantidad = item.Cantidad;
                         Ordencita.platillos.Comentarios = item.Comentarios;
                     }
                 }
-                foreach (var item in bebidasdefinidas)
+                foreach (var item in Bebidasdefinidas)
                 {
                     if (item.Cantidad > 0)
                     {
@@ -60,7 +70,7 @@ namespace ComandasCliente.Droid.ViewModels
                         Ordencita.bebidas.Comentarios = item.Comentarios;
                     }
                 }
-
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Ordencita)));
                 await cliente.PedidoPOST(Ordencita);
 
             }

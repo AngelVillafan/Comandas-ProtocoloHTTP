@@ -1,4 +1,5 @@
-﻿using ComandasServidor.Models;
+﻿using ComandasCliente.Droid.Models;
+using ComandasServidor.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace ComandasServidor.Services
 
         public PedidoService()
         {
-            listener.Prefixes.Add("http://*:4999/pedidos/");
+            listener.Prefixes.Add("http://*:7777/pedidos/");
         }
         public void Iniciar()
         {
@@ -27,7 +28,7 @@ namespace ComandasServidor.Services
             }
         }
         public event Action<Bebida>? BebidaRecibida;
-        public event Action<Platillo>? PlatilloRecibido;
+        public event Action<Orden>? PlatilloRecibido;
 
         private void Context(IAsyncResult ar)
         {
@@ -38,13 +39,12 @@ namespace ComandasServidor.Services
                 {
                     var stream = new StreamReader(context.Request.InputStream);
                     var json = stream.ReadToEnd();
-                    Platillo? platillo = JsonConvert.DeserializeObject<Platillo>(json);
-                    Bebida? bebida = JsonConvert.DeserializeObject<Bebida>(json);
+                    Orden? ordencita = JsonConvert.DeserializeObject<Orden>(json);
                     context.Response.StatusCode = 200;
-                    if (platillo != null)
-                        PlatilloRecibido?.Invoke(platillo);
-                    if (bebida != null)
-                        BebidaRecibida?.Invoke(bebida);
+                    if (ordencita.platillos != null)
+                        PlatilloRecibido?.Invoke(ordencita);
+                    //if (ordencita.bebidas != null)
+                    //    BebidaRecibida?.Invoke(ordencita.bebidas);
                     context.Response.Close();
                 }
                 else

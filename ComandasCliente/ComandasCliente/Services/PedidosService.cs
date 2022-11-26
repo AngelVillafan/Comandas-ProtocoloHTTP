@@ -11,7 +11,7 @@ namespace ComandasCliente.Droid.Services
         HttpClient cliente = new HttpClient();
         public PedidosService()
         {
-            cliente.BaseAddress = new Uri("http://localhost:4999/pedidos/");
+            cliente.BaseAddress = new Uri("https://c98c-187-209-229-220.ngrok.io/pedidos/");
         }
         
         public async Task PedidoPOST(object obj)

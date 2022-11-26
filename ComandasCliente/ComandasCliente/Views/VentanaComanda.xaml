@@ -7,6 +7,11 @@
         <mvvm:PrincipalViewModelcs></mvvm:PrincipalViewModelcs>
     </ContentPage.BindingContext>
     <StackLayout>
+        <StackLayout HeightRequest="70" Background="gray">
+            <Label>Mesa</Label>
+            <Entry Keyboard="Numeric"
+                           Text="{Binding Ordencita.Mesa}"></Entry>
+        </StackLayout>
         <ScrollView>
             <StackLayout>
                 <StackLayout>
@@ -18,8 +23,9 @@
                        WidthRequest="100">
                         <Image Source="comidas.png" Aspect="AspectFill"></Image>
                     </Frame>
+                    
                     <!--BINDING A LA LISTA DE COMIDA-->
-                    <CollectionView ItemsSource="{Binding platillosdefinidos}" FlowDirection="LeftToRight">
+                    <CollectionView ItemsSource="{Binding Platillosdefinidos}" FlowDirection="LeftToRight">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>
@@ -70,7 +76,7 @@
                         <Image Source="bebidas.png" Aspect="AspectFill"></Image>
                     </Frame>
                     <!--BINDING A LA LISTA DE LAS BEBIDAS-->
-                    <CollectionView ItemsSource="{Binding bebidasdefinidas}" FlowDirection="LeftToRight">
+                    <CollectionView ItemsSource="{Binding Bebidasdefinidas}" FlowDirection="LeftToRight">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <Grid>

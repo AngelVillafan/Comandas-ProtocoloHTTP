@@ -52,7 +52,7 @@
                            >Pedidos</TextBlock>
 
                     <ListBox Style="{StaticResource gastosListBox}"
-                                 Margin="0 20 0 0">
+                                 Margin="0 20 0 0" SelectedItem="{Binding Ordencita}" ItemsSource="{Binding Ordenes}">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <StackPanel></StackPanel>
@@ -88,11 +88,11 @@
                                                 </WrapPanel>
                                                 <WrapPanel Margin="0 0 0 5">
                                                     <TextBlock Text="Mesero: "></TextBlock>
-                                                    <TextBlock Text="Nombre del mesero"></TextBlock>
+                                                    <TextBlock Text="{Binding Mesa}"></TextBlock>
                                                 </WrapPanel>
                                                 <WrapPanel Margin="0 0 0 5">
                                                     <TextBlock Text="Pedido hecho: "></TextBlock>
-                                                    <TextBlock Text="Hora y fecha de toma de orden"></TextBlock>
+                                                    <TextBlock Text="{Binding Fecha}"></TextBlock>
                                                 </WrapPanel>
                                             </StackPanel>
                                         </Grid>
@@ -121,7 +121,7 @@
                     <Border CornerRadius="8"
                             Margin="0 10 0 0"
                             Background="{StaticResource fondoGrisClaro}">
-                        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                        <ScrollViewer VerticalScrollBarVisibility="Hidden" >
                             <StackPanel Margin="15">
                                 <StackPanel.Resources>
                                     <Style TargetType="TextBlock">
@@ -129,27 +129,35 @@
                                     </Style>
                                 </StackPanel.Resources>
                                 <TextBlock>Mesa #
-                                <TextBlock Text="45"></TextBlock>
+                                <TextBlock Text="{Binding Ordencita.Mesa}"></TextBlock>
                                 </TextBlock>
                                 <WrapPanel>
                                     <TextBlock Margin=" 0 0 10 0">Mesero:</TextBlock>
-                                    <TextBlock Text="Alfonso Alfonsito"></TextBlock>
+                                    <TextBlock Text="{Binding Ordencita.Mesero}"></TextBlock>
                                 </WrapPanel>
                                 <WrapPanel>
                                     <TextBlock Margin=" 0 0 10 0">Hora:</TextBlock>
-                                    <TextBlock Text="15:36"></TextBlock>
+                                    <TextBlock Text="{Binding Ordencita.Fecha}"></TextBlock>
                                 </WrapPanel>
                                 <WrapPanel>
-                                    <TextBlock Margin=" 0 0 10 0">Platillos:</TextBlock>
-                                    <TextBlock Text=""></TextBlock>
+                                    <TextBlock Margin=" 0 0 10 0">Platillo:</TextBlock>
+                                    <TextBlock Text="{Binding Ordencita.platillos.NombrePlatillo}"></TextBlock>
+                                </WrapPanel>
+                                <WrapPanel>
+                                    <TextBlock Margin=" 0 0 10 0">Cantidad:</TextBlock>
+                                    <TextBlock Text="{Binding Ordencita.platillos.Cantidad}"></TextBlock>
                                 </WrapPanel>
                                 <WrapPanel Margin="0 0 15 0">
-                                    <TextBlock Margin=" 0 0 10 0">Bebidas:</TextBlock>
-                                    <TextBlock Text="v"></TextBlock>
+                                    <TextBlock Margin=" 0 0 10 0">Bebida:</TextBlock>
+                                    <TextBlock Text="{Binding Ordencita.bebidas.NombreBebida}"></TextBlock>
+                                </WrapPanel>
+                                <WrapPanel Margin="0 0 15 0">
+                                    <TextBlock Margin=" 0 0 10 0">Cantidad:</TextBlock>
+                                    <TextBlock Text="{Binding Ordencita.bebidas.Cantidad}"></TextBlock>
                                 </WrapPanel>
                                 <WrapPanel>
                                     <TextBlock Margin=" 0 0 10 0">Notas:</TextBlock>
-                                    <TextBlock Text="f"></TextBlock>
+                                    <TextBlock Text="{Binding Ordencita.platillos.Comentarios}"></TextBlock>
                                 </WrapPanel>
 
 
